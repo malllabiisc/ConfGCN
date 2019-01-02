@@ -2,7 +2,7 @@
 
 Source code for [AISTATS 2019](https://www.aistats.org/) paper: [Confidence-based Graph Convolutional Networks for Semi-Supervised Learning]().
 
-![](/Users/shikharvashishth/Documents/ConfGCN/overview.png)*Label prediction on node a by Kipf-GCN and ConfGCN (this paper). L0 is a’s true label. Shade
+![](./overview.png)*Label prediction on node a by Kipf-GCN and ConfGCN (this paper). L0 is a’s true label. Shade
 intensity of a node reflects the estimated score of label L1 assigned to that node. Since Kipf-GCN is not capable
 of estimating influence of one node on another, it is misled by the dominant label L1 in node a’s neighborhood
 and thereby making the wrong assignment. ConfGCN, on the other hand, estimates confidences (shown by bars)
