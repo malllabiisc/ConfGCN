@@ -1,11 +1,7 @@
-from models import *
 from helper import *
-from utils  import *
+import tensorflow as tf
 
-import tensorflow as tf, time, uuid
-from collections import Counter
-
-class ConfGCN(Model):
+class ConfGCN(object):
 
 	def load_data(self):
 		print("loading data")
@@ -117,7 +113,7 @@ class ConfGCN(Model):
 			self.sig = tf.get_variable('sig', [self.num_nodes,  self.output_dim], initializer=tf.constant_initializer(1.0), regularizer=self.regularizer)		# Inverse of co-variance matrix
 
 		self.mu  = tf.nn.softmax(self.mu, axis = 1)		# Makes mu into a distribution
-		# self.sig = tf.nn.elu(self.sig)				# Imposes soft non-negative constraint on co-variance matrix
+		# self.sig = tf.nn.elu(self.sig)			# Imposes soft non-negative constraint on co-variance matrix
 
 		gcn1_out = self.GCNLayer(
 				gcn_in                  = self.placeholders['features'],
@@ -313,7 +309,6 @@ if __name__== "__main__":
 		params = json.load(open('./config/hyperparams.json'))
 		for key, val in params[args.data].items():
 			exec('args.{}={}'.format(key, val))
-
 
 	# Evaluation only model (no training)
 	if args.eval: args.epochs = 0
