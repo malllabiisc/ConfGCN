@@ -1,3 +1,8 @@
+# Ignore directories
+checkpoints/*
+data/*
+tf_board/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
