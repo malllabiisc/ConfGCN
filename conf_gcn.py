@@ -112,8 +112,8 @@ class ConfGCN(object):
 			self.mu  = tf.get_variable('mu',  [self.num_nodes,  self.output_dim], initializer=tf.contrib.layers.xavier_initializer(), regularizer=self.regularizer)	# Label distribution for each node
 			self.sig = tf.get_variable('sig', [self.num_nodes,  self.output_dim], initializer=tf.constant_initializer(1.0), regularizer=self.regularizer)		# Inverse of co-variance matrix
 
-		self.mu  = tf.nn.softmax(self.mu, axis = 1)		# Makes mu into a distribution
-		# self.sig = tf.nn.elu(self.sig)			# Imposes soft non-negative constraint on co-variance matrix
+		self.mu  = tf.nn.softmax(self.mu, axis = 1)	# Makes mu into a distribution
+		self.sig = tf.nn.elu(self.sig)			# Imposes soft non-negative constraint on co-variance matrix
 
 		gcn1_out = self.GCNLayer(
 				gcn_in                  = self.placeholders['features'],
