@@ -9,37 +9,69 @@ from pprint import pprint
 np.set_printoptions(precision=4)
 
 def set_gpu(gpus):
-	os.environ["CUDA_DEVICE_ORDER"]    = "PCI_BUS_ID"
-	os.environ["CUDA_VISIBLE_DEVICES"] = gpus
+        """
+        Sets the GPU to be used for the run
 
-def shape(tensor):
-	s = tensor.get_shape()
-	return tuple([s[i].value for i in range(0, len(s))])
-
+        Parameters
+        ----------
+        gpus:           List of GPUs to be used for the run
+        
+        Returns
+        -------    
+        """
+        os.environ["CUDA_DEVICE_ORDER"]    = "PCI_BUS_ID"
+        os.environ["CUDA_VISIBLE_DEVICES"] = gpus
 
 def debug_nn(res_list, feed_dict):
-	import tensorflow as tf
-	
-	config = tf.ConfigProto()
-	config.gpu_options.allow_growth=True
-	sess = tf.Session(config=config)
-	sess.run(tf.global_variables_initializer())
-	summ_writer = tf.summary.FileWriter("tf_board/debug_nn", sess.graph)
-	res = sess.run(res_list, feed_dict = feed_dict)
-	return res
+        """
+        Function for debugging Tensorflow model      
+
+        Parameters
+        ----------
+        res_list:       List of tensors/variables to view
+        feed_dict:      Feed dict required for getting values
+        
+        Returns
+        -------
+        Returns the list of values of given tensors/variables after execution
+
+        """
+        import tensorflow as tf
+        
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth=True
+        sess = tf.Session(config=config)
+        sess.run(tf.global_variables_initializer())
+        summ_writer = tf.summary.FileWriter("tf_board/debug_nn", sess.graph)
+        res = sess.run(res_list, feed_dict = feed_dict)
+        return res
 
 def get_logger(name, log_dir, config_dir):
-	config_dict = json.load(open( config_dir + 'log_config.json'))
-	config_dict['handlers']['file_handler']['filename'] = log_dir + name.replace('/', '-')
-	logging.config.dictConfig(config_dict)
-	logger = logging.getLogger(name)
+        """
+        Creates a logger object
 
-	std_out_format = '%(asctime)s - [%(levelname)s] - %(message)s'
-	consoleHandler = logging.StreamHandler(sys.stdout)
-	consoleHandler.setFormatter(logging.Formatter(std_out_format))
-	logger.addHandler(consoleHandler)
+        Parameters
+        ----------
+        name:           Name of the logger file
+        log_dir:        Directory where logger file needs to be stored
+        config_dir:     Directory from where log_config.json needs to be read
+        
+        Returns
+        -------
+        A logger object which writes to both file and stdout
+                
+        """
+        config_dict = json.load(open( config_dir + 'log_config.json'))
+        config_dict['handlers']['file_handler']['filename'] = log_dir + name.replace('/', '-')
+        logging.config.dictConfig(config_dict)
+        logger = logging.getLogger(name)
 
-	return logger
+        std_out_format = '%(asctime)s - [%(levelname)s] - %(message)s'
+        consoleHandler = logging.StreamHandler(sys.stdout)
+        consoleHandler.setFormatter(logging.Formatter(std_out_format))
+        logger.addHandler(consoleHandler)
+
+        return logger
 
 """
 Most of the functions below are taken from https://github.com/tkipf/gcn
