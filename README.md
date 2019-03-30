@@ -38,6 +38,7 @@ over the label scores, and uses them to increase influence of nodes b and c to e
   ```
 
 ### Citation
+Please cite us if you use this code.
 
 ```tex
 @InProceedings{ConfGCN2019,

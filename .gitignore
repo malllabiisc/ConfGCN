@@ -2,6 +2,7 @@
 checkpoints/*
 data/*
 tf_board/*
+log/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
