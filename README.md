@@ -41,15 +41,22 @@ over the label scores, and uses them to increase influence of nodes b and c to e
 Please cite us if you use this code.
 
 ```tex
-@InProceedings{ConfGCN2019,
-  author = 	"Vashishth, Shikhar
-		and Yadav, Prateek
-		and Bhandari, Manik
-		and Talukdar, Partha",
-  title = 	"Confidence-based Graph Convolutional Networks for Semi-Supervised Learning",
-  booktitle = 	"International Conference on  Artificial Intelligence and Statistics (AISTATS)",
-  year = 	"2019",
-  location = 	"Naha, Okinawa, Japan"
+@article{DBLP:journals/corr/abs-1901-08255,
+  author    = {Shikhar Vashishth and
+               Prateek Yadav and
+               Manik Bhandari and
+               Partha Talukdar},
+  title     = {Confidence-based Graph Convolutional Networks for Semi-Supervised
+               Learning},
+  journal   = {CoRR},
+  volume    = {abs/1901.08255},
+  year      = {2019},
+  url       = {http://arxiv.org/abs/1901.08255},
+  archivePrefix = {arXiv},
+  eprint    = {1901.08255},
+  timestamp = {Sat, 02 Feb 2019 16:56:00 +0100},
+  biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1901-08255},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 ```
 
