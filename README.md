@@ -41,22 +41,20 @@ over the label scores, and uses them to increase influence of nodes b and c to e
 Please cite us if you use this code.
 
 ```tex
-@article{DBLP:journals/corr/abs-1901-08255,
-  author    = {Shikhar Vashishth and
-               Prateek Yadav and
-               Manik Bhandari and
-               Partha Talukdar},
-  title     = {Confidence-based Graph Convolutional Networks for Semi-Supervised
-               Learning},
-  journal   = {CoRR},
-  volume    = {abs/1901.08255},
-  year      = {2019},
-  url       = {http://arxiv.org/abs/1901.08255},
-  archivePrefix = {arXiv},
-  eprint    = {1901.08255},
-  timestamp = {Sat, 02 Feb 2019 16:56:00 +0100},
-  biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1901-08255},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+@InProceedings{vashishth19a,
+  title = 	 {Confidence-based Graph Convolutional Networks for Semi-Supervised Learning},
+  author = 	 {Vashishth, Shikhar and Yadav, Prateek and Bhandari, Manik and Talukdar, Partha},
+  booktitle = 	 {Proceedings of Machine Learning Research},
+  pages = 	 {1792--1801},
+  year = 	 {2019},
+  editor = 	 {Chaudhuri, Kamalika and Sugiyama, Masashi},
+  volume = 	 {89},
+  series = 	 {Proceedings of Machine Learning Research},
+  address = 	 {},
+  month = 	 {16--18 Apr},
+  publisher = 	 {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v89/vashishth19a/vashishth19a.pdf},
+  url = 	 {http://proceedings.mlr.press/v89/vashishth19a.html}
 }
 ```
 
